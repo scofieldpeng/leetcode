@@ -24,8 +24,55 @@
 //queries[i][j], words[i][j] are English lowercase letters.
 package numSmallerByFrequency
 
+import (
+	"fmt"
+	"sort"
+)
+
 // 这道题首先计算出每个字符串中最小字母出现的次数，然后，queries的每一个下标的结果集再和words的结果集相比较，得出qeries比words的结果集
 // 的数量低的一个int数组集
 func numSmallerByFrequency(queries []string, words []string) []int {
+	queriesCount := make([]int, 0, len(queries))
+	wordsCount := make([]int, 0, len(words))
+	for _, v := range queries {
+		queriesCount = append(queriesCount, smallestCharacterNum(v))
+	}
+	for _, v := range words {
+		wordsCount = append(wordsCount, smallestCharacterNum(v))
+	}
 
+	sort.Ints(wordsCount)
+
+	fmt.Println(queriesCount)
+	fmt.Println(wordsCount)
+
+	resCount := make([]int, len(queries), len(queries))
+	for k, v := range queriesCount {
+		for kk, vv := range wordsCount {
+			if vv > v {
+				resCount[k] = len(wordsCount) - kk
+				break
+			}
+		}
+	}
+
+	return resCount
+}
+
+/// 查找最小的字符串出现的次数
+func smallestCharacterNum(character string) int {
+	var res = 1
+	var smallByte byte = 'z'
+	var length = len(character)
+	for i:=0;i<length;i++ {
+		if character[i] <= smallByte {
+			if character[i] < smallByte {
+				res = 1
+				smallByte = character[i]
+			}
+			res++
+		}
+	}
+
+	return res
 }
