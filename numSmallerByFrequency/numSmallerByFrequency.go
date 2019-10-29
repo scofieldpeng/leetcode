@@ -1,27 +1,27 @@
 // Let's define a function f(s) over a non-empty string s, which calculates the frequency of the smallest character in s. For example, if s = "dcce" then f(s) = 2 because the smallest character is "c" and its frequency is 2.
 //
-//Now, given string arrays queries and words, return an integer array answer, where each answer[i] is the number of words such that f(queries[i]) < f(W), where W is a word in words.
+// Now, given string arrays queries and words, return an integer array answer, where each answer[i] is the number of words such that f(queries[i]) < f(W), where W is a word in words.
 //
 //
 //
-//Example 1:
+// Example 1:
 //
-//Input: queries = ["cbd"], words = ["zaaaz"]
-//Output: [1]
-//Explanation: On the first query we have f("cbd") = 1, f("zaaaz") = 3 so f("cbd") < f("zaaaz").
-//Example 2:
+// Input: queries = ["cbd"], words = ["zaaaz"]
+// Output: [1]
+// Explanation: On the first query we have f("cbd") = 1, f("zaaaz") = 3 so f("cbd") < f("zaaaz").
+// Example 2:
 //
-//Input: queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
-//Output: [1,2]
-//Explanation: On the first query only f("bbb") < f("aaaa"). On the second query both f("aaa") and f("aaaa") are both > f("cc").
+// Input: queries = ["bbb","cc"], words = ["a","aa","aaa","aaaa"]
+// Output: [1,2]
+// Explanation: On the first query only f("bbb") < f("aaaa"). On the second query both f("aaa") and f("aaaa") are both > f("cc").
 //
 //
-//Constraints:
+// Constraints:
 //
-//1 <= queries.length <= 2000
-//1 <= words.length <= 2000
-//1 <= queries[i].length, words[i].length <= 10
-//queries[i][j], words[i][j] are English lowercase letters.
+// 1 <= queries.length <= 2000
+// 1 <= words.length <= 2000
+// 1 <= queries[i].length, words[i].length <= 10
+// queries[i][j], words[i][j] are English lowercase letters.
 package numSmallerByFrequency
 
 import (
@@ -59,12 +59,12 @@ func numSmallerByFrequency(queries []string, words []string) []int {
 	return resCount
 }
 
-/// 查找最小的字符串出现的次数
+// / 查找最小的字符串出现的次数
 func smallestCharacterNum(character string) int {
 	var res = 1
 	var smallByte byte = 'z'
 	var length = len(character)
-	for i:=0;i<length;i++ {
+	for i := 0; i < length; i++ {
 		if character[i] <= smallByte {
 			if character[i] < smallByte {
 				res = 1
@@ -111,7 +111,7 @@ func counter(s string) int {
 	si := 27
 	index := [26]int{}
 
-	for i:=0; i < len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		c := int(s[i] - 97)
 		if si > c {
 			si = c
