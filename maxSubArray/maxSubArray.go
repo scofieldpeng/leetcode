@@ -1,3 +1,5 @@
+// problem: https://leetcode.com/problems/maximum-subarray/
+// solution: algs.home.pjf.im/maximum-subarray.html
 package maxSubArray
 
 func maxSubArray(nums []int) int {
