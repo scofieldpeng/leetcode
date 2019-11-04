@@ -1,3 +1,5 @@
+// problem: https://leetcode.com/problems/plus-one
+// solution: https://algs.home.pjf.im/plus-one
 package plusOne
 
 func plusOne(digits []int) []int {
