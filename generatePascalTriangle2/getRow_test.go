@@ -5,12 +5,13 @@ import (
 )
 
 func Test_getRow(t *testing.T) {
-	inputs := []int{1, 2, 3, 4,}
+	inputs := []int{0, 1, 2, 3, 4,}
 	outputs := [][]int{
 		{1},
 		{1, 1},
 		{1, 2, 1},
 		{1, 3, 3, 1},
+		{1, 4, 6, 4, 1},
 	}
 	for k, v := range inputs {
 		output := getRow(v)
