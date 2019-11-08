@@ -1,3 +1,5 @@
+// problem: https://leetcode.com/problems/pascals-triangle-ii/
+// solution: https://algs.home.pjf.im/pascals-triangle-ii/
 package generatePascalTriangle2
 
 func getRow(rowIndex int) []int {
