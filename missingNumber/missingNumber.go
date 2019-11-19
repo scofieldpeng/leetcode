@@ -7,6 +7,16 @@ import "sort"
 // sort
 func missingNumber(nums []int) int {
 	sort.Ints(nums)
+	// 第一个不存在
+	if nums[0] != 0 {
+		return 0
+	}
+	// 最后一个不存在
+	if nums[len(nums)-1] != len(nums) {
+		return len(nums)
+	}
+
+	// 中间有值不存在
 	prev := nums[0]
 	length := len(nums)
 	for i := 1; i < length; i++ {
@@ -16,6 +26,7 @@ func missingNumber(nums []int) int {
 		prev = nums[i]
 	}
 
+	// 都存在返回-1
 	return -1
 }
 
@@ -24,8 +35,18 @@ func missingNumber2(nums []int) int {
 	length := len(nums)
 	numsArr := make([]int, length+1, length+1)
 
+	findZero := false
+
 	for i := 0; i < length; i++ {
+		if nums[i] == 0 {
+			findZero = true
+		}
 		numsArr[nums[i]] = nums[i]
+	}
+
+	// 看是否存在0，不存在直接返回
+	if !findZero {
+		return 0
 	}
 
 	for k, v := range numsArr {
