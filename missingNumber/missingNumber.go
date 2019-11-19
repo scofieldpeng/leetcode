@@ -57,3 +57,14 @@ func missingNumber2(nums []int) int {
 
 	return -1
 }
+
+// 利用高斯算法
+func missingNumber3(nums []int) int {
+	length := len(nums)
+	total := length * (length + 1) / 2
+	for _, v := range nums {
+		total -= v
+	}
+
+	return total
+}
