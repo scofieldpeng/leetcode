@@ -3,8 +3,14 @@
 package containsDuplicateII
 
 func containsNearbyDuplicate(nums []int, k int) bool {
-	if len(nums) <= 2 {
-		return false
+	numsMap := make(map[int]int, len(nums))
+	for index, v := range nums {
+		if vv, exist := numsMap[v]; exist {
+			if index - vv <= k {
+				return true
+			}
+		}
+		numsMap[v] = index
 	}
 
 	return false
