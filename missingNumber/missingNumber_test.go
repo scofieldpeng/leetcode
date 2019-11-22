@@ -33,4 +33,11 @@ func Test_missingNumber(t *testing.T) {
 			t.Fatalf("input: %v, wanted: %v, get: %v\n", v, outputs[k], res)
 		}
 	}
+
+	for k, v := range inputs {
+		res := missingNumber4(v)
+		if res != outputs[k] {
+			t.Fatalf("input: %v, wanted: %v, get: %v\n", v, outputs[k], res)
+		}
+	}
 }

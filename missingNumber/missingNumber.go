@@ -68,3 +68,16 @@ func missingNumber3(nums []int) int {
 
 	return total
 }
+
+// 利用位运算的异或来解决
+// a ^ a = 0
+// a ^ 0 = a
+// a ^ b ^ a = b
+func missingNumber4(nums []int) int {
+	lastV := len(nums)
+	for k, v := range nums {
+		lastV = lastV ^ k ^ v
+	}
+
+	return lastV
+}
