@@ -2,6 +2,7 @@
 // solution: https://algs.home.pjf.im/move-zeroes.html
 package moveZeroes
 
+// 简单粗暴，用一个数组来存储0的索引值，然后将非空的值移动到这个索引位即可，移走的那位需要更新成0
 func moveZeroes(nums []int) {
 	zeroIndexs := make([]int, 0, len(nums))
 	for k, v := range nums {
@@ -17,4 +18,8 @@ func moveZeroes(nums []int) {
 			nums[k] = 0
 		}
 	}
+}
+
+func moveZeros2(nums []int) {
+
 }
