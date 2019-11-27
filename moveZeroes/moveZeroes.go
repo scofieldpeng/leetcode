@@ -33,3 +33,13 @@ func moveZeros2(nums []int) {
 		nums[i] = 0
 	}
 }
+
+func moveZeros3(nums []int) {
+	lastNoZeroIndex := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != 0 {
+			nums[lastNoZeroIndex], nums[i] = nums[i], nums[lastNoZeroIndex]
+			lastNoZeroIndex++
+		}
+	}
+}
