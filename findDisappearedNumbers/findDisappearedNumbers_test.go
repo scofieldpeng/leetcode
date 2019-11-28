@@ -16,6 +16,13 @@ func Test_findDisappearedNumbers(t *testing.T) {
 			t.Fatalf("input:%v, output:%v, wanted:%v\n", v, res, outputs[k])
 		}
 	}
+
+	for k, v := range inputs {
+		res := findDisappearedNumbers2(v)
+		if false == equal(res, outputs[k]) {
+			t.Fatalf("input:%v, output:%v, wanted:%v\n", v, res, outputs[k])
+		}
+	}
 }
 
 func equal(a, b []int) bool {
