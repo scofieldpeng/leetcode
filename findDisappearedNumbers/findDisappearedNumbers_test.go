@@ -25,6 +25,38 @@ func Test_findDisappearedNumbers(t *testing.T) {
 	}
 }
 
+func Test_findDisappearedNumber2(t *testing.T) {
+	inputs := [][]int{
+		{4, 3, 2, 7, 8, 2, 3, 1},
+	}
+	outputs := [][]int{
+		{5, 6},
+	}
+
+	for k, v := range inputs {
+		res := findDisappearedNumbers2(v)
+		if false == equal(res, outputs[k]) {
+			t.Fatalf("input:%v, output:%v, wanted:%v\n", v, res, outputs[k])
+		}
+	}
+}
+
+func Test_findDisappearedNumbers3(t *testing.T) {
+	inputs := [][]int{
+		{4, 3, 2, 7, 8, 2, 3, 1},
+	}
+	outputs := [][]int{
+		{5, 6},
+	}
+
+	for k, v := range inputs {
+		res := findDisappearedNumbers3(v)
+		if false == equal(res, outputs[k]) {
+			t.Fatalf("input:%v, output:%v, wanted:%v\n", v, res, outputs[k])
+		}
+	}
+}
+
 func equal(a, b []int) bool {
 	if len(a) != len(b) {
 		return false

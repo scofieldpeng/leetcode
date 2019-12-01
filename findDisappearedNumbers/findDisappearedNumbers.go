@@ -36,3 +36,33 @@ func findDisappearedNumbers2(nums []int) []int {
 
 	return res
 }
+
+func findDisappearedNumbers3(nums []int) []int {
+	length := len(nums)
+	res := make([]int, 0, length)
+	for i := 0; i < length; i++ {
+		// 找到对应索引值对应的真正的索引值
+		index := abs(nums[i])
+		if nums[index-1] > 0 {
+			// 要不变为0（恰好在本身的位置）
+			// 要不变为负数(不在本身位置，此时负数的绝对值是该位置上的那个值本身)
+			nums[index-1] = -nums[index-1]
+		}
+	}
+
+	// 如果值大于0，所以该位置没有人占用，那么说明这一位是disappear的
+	for i := 0; i < length; i++ {
+		if nums[i] > 0 {
+			res = append(res, i+1)
+		}
+	}
+
+	return res
+}
+
+func abs(data int) int {
+	if data < 0 {
+		return -data
+	}
+	return data
+}
