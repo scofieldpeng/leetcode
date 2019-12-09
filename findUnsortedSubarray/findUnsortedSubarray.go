@@ -23,5 +23,9 @@ func findUnsortedSubarray(nums []int) int {
 		}
 	}
 
+	if end == begin {
+		return 0
+	}
+
 	return end - begin + 1
 }
