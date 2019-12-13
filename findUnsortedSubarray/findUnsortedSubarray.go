@@ -1,6 +1,9 @@
 package findUnsortedSubarray
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 // sort大法
 func findUnsortedSubarray(nums []int) int {
@@ -60,6 +63,53 @@ func findUnsortedSubarray2(nums []int) int {
 	}
 
 	return rightIndex - leftIndex + 1
+}
+
+// 时间换空间
+func findUnsortedSubarray3(nums []int) int {
+	isFind := false
+	minValue :=math.MaxInt64
+	// 从左到右，找到不在自己顺序上的最小值
+	for i := 1; i < len(nums); i++ {
+		if nums[i] < nums[i-1] {
+			isFind = true
+		}
+		if isFind {
+			minValue = min(nums[i], minValue)
+		}
+	}
+
+	isFind = false
+	maxValue := math.MinInt64
+	// 从右到左，找到不再自己顺序上的那个最大值
+	for i := len(nums) - 2; i >= 0; i-- {
+		if nums[i] > nums[i+1] {
+			isFind = true
+		}
+		if isFind {
+			maxValue = max(nums[i], maxValue)
+		}
+	}
+
+	// 找这个最小值的index
+	left, right := 0, 0
+	for left = 0; left < len(nums); left ++ {
+		if nums[left] > minValue {
+			break
+		}
+	}
+	// 找最大值的index
+	for right = len(nums) - 1; right >= 0; right-- {
+		if nums[right] < maxValue {
+			break
+		}
+	}
+
+	if left == right {
+		return 0
+	}
+
+	return right - left + 1
 }
 
 type Stack struct {
