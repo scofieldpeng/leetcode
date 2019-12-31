@@ -8,6 +8,9 @@ package pivotIndex
 // 2a - y = total
 // 所以我们只要找到符合这个等式的值即可
 func pivotIndex(nums []int) int {
+	if len(nums) < 3 {
+		return -1
+	}
 	total := 0
 	for _, v := range nums {
 		total += v
@@ -16,7 +19,7 @@ func pivotIndex(nums []int) int {
 	a := 0
 	for i := 0; i < len(nums); i++ {
 		a += nums[i]
-		if a*2 - nums[i] == total {
+		if a*2-nums[i] == total {
 			return i
 		}
 	}
