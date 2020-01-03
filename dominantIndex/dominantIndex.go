@@ -2,16 +2,12 @@
 // solution: https://algs.home.pjf.im/largest-number-at-least-twice-of-others.html
 package dominantIndex
 
-import "math"
-
 func dominantIndex(nums []int) int {
 	// find the max
 	maxIndex := -1
-	max := math.MinInt64
 	for k, v := range nums {
-		if v >= max {
+		if v >= nums[maxIndex] {
 			maxIndex = k
-			max = v
 			continue
 		}
 	}
@@ -21,7 +17,7 @@ func dominantIndex(nums []int) int {
 				continue
 			}
 
-			if v*2 > max {
+			if v*2 > nums[maxIndex] {
 				return -1
 			}
 		}
@@ -50,7 +46,7 @@ func dominantIndex2(nums []int) int {
 		}
 	}
 
-	if second*2 <= largest {
+	if nums[second]*2 <= nums[largest] {
 		return largest
 	}
 
