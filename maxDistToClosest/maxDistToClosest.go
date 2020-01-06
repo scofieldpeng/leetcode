@@ -1,7 +1,5 @@
 package maxDistToClosest
 
-import "math"
-
 // 看起来又是一道dp问题
 // 找到最长的一段空位，然后找到中间的位置或者末尾/开头的位置就是最大的了
 func maxDistToClosest(seats []int) int {
@@ -21,7 +19,7 @@ func maxDistToClosest(seats []int) int {
 			}
 			current = i - start + 1
 			if start != 0 && i != length-1 {
-				current = int(math.Ceil(float64(current) / float64(2)))
+				current = current/2 + current%2
 			}
 		}
 
