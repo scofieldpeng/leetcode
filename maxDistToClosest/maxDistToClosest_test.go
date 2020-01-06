@@ -6,9 +6,12 @@ func Test_maxDistToClosest(t *testing.T) {
 	inputs := [][]int{
 		{1, 0, 0, 0, 1, 0, 1},
 		{1, 0, 0, 0},
+		{0, 1, 0},
+		{0, 1, 1, 1, 0, 0, 1, 0, 0},
+		{0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0},
 	}
 	outputs := []int{
-		2, 3,
+		2, 3, 1, 2, 3,
 	}
 
 	for k, v := range inputs {

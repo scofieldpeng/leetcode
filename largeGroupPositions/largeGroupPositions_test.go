@@ -4,16 +4,16 @@ import "testing"
 
 func Test_largeGroupPositons(t *testing.T) {
 	inputs := []string{
-		// "abbxxxxzzy",
-		// "abc",
-		// "abcdddeeeeaabbbcd",
+		"abbxxxxzzy",
+		"abc",
+		"abcdddeeeeaabbbcd",
 		"aaa",
 	}
 
 	outputs := [][][]int{
-		// {{3, 6}},
-		// {},
-		// {{3, 5}, {6, 9}, {12, 14}},
+		{{3, 6}},
+		{},
+		{{3, 5}, {6, 9}, {12, 14}},
 		{{0, 2}},
 	}
 
