@@ -33,9 +33,5 @@ func maxDistToClosest(seats []int) int {
 
 	}
 
-	if max == 0 {
-		return 1
-	}
-
 	return max
 }
