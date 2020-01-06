@@ -5,18 +5,14 @@ package largeGroupPositions
 func largeGroupPositions(S string) [][]int {
 	length := len(S)
 	start := 0
-	prev := S[0]
 	res := make([][]int, 0)
 
-	for i := 1; i < length-1; i++ {
-		if S[i] != prev {
-			// i -1 - start + 1 = i - start
-			if i-start >= 3 {
-				res = append(res, []int{start, i - 1})
+	for i := 0; i < length; i++ {
+		if i == length-1 || S[i] != S[i+1] {
+			if i-start+1 >= 3 {
+				res = append(res, []int{start, i})
 			}
-			start = i
-			prev = S[i]
-			continue
+			start = i + 1
 		}
 	}
 
