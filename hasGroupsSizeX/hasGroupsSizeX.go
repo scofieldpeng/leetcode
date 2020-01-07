@@ -1,3 +1,5 @@
+// problem: https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/
+// solution: https://algs.home.pjf.im/x-of-a-kind-in-a-deck-of-cards.html
 package hasGroupsSizeX
 
 import "sort"
