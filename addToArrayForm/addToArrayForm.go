@@ -36,3 +36,27 @@ func addToArrayForm(A []int, K int) []int {
 
 	return res
 }
+
+func addToArrayForm2(A []int, K int) []int {
+	length := len(A)
+	// 这里计算后的A值其实就是结果集的后面几位
+	for i := length - 1; i >= 0; i-- {
+		A[i] += K
+		K = A[i] / 10
+		A[i] = A[i] % 10
+	}
+	// 如果K是大于0的话，那么说明是多出来的位数，也可能是K原本的位数就比A大很多，因此需要获取到两者相加后上面得到的A的前面的部分
+	tmp := make([]int, 0)
+	for ; K > 0; {
+		tmp = append(tmp, K%10)
+		K = K / 10
+	}
+	// 计算后左右对调得到正确的顺序
+	length = len(tmp)
+	for i := 0; i < length / 2; i++ {
+		tmp[i], tmp[length-1-i] = tmp[length-1-i], tmp[i]
+	}
+
+	// 组合两者，返回值
+	return append(tmp, A...)
+}
