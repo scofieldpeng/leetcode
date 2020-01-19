@@ -1,3 +1,5 @@
+// problem: https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/
+// solution: https://algs.home.pjf.im/pairs-of-songs-with-total-durations-divisible-by-60.html
 package numPairsDivisibleBy60
 
 // 我们知道（x + y ) % 60 = 0,也等于 x % 60 + y % 60 = 60，也就是x % 60 = 60 - y % 60，但是因为y % 60有可能为0，但是x % 60不可能
