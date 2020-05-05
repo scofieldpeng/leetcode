@@ -1,16 +1,14 @@
+// problem: https://leetcode.com/problems/binary-prefix-divisible-by-5
+// solution: https://algs.home.pjf.im/95.html
 package prefixesDivBy5
-
-import (
-	"strconv"
-)
 
 func prefixesDivBy5(A []int) []bool {
 	length := len(A)
 	res := make([]bool, length, length)
 	count := 0
 	for i, v := range A {
-		count = count * 10 + v
-		if k,_ := strconv.ParseInt(strconv.Itoa(count),2,64); k % 5== 0 {
+		count = (count * 2 + v) % 5
+		if count % 5 == 0 {
 			res[i] = true
 		}
 	}
