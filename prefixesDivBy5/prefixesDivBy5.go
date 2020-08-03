@@ -7,6 +7,8 @@ func prefixesDivBy5(A []int) []bool {
 	res := make([]bool, length, length)
 	count := 0
 	for i, v := range A {
+		// 这里运用了(ac+c)%d = ( (a%d)*(c%d) + c%d ) % d
+		// 只关心余数，如果余数为0，那肯定整除
 		count = (count * 2 + v) % 5
 		if count % 5 == 0 {
 			res[i] = true
