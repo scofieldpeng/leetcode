@@ -39,8 +39,6 @@ func kWeakestRows(mat [][]int, k int) []int {
 
 	return tmp[0:k]
 }
-
-// todo 待分析
 func kWeakestRows2(mat [][]int, k int) []int {
 	windex := make([]int, len(mat))
 	n := len(mat[0])
@@ -52,11 +50,12 @@ func kWeakestRows2(mat [][]int, k int) []int {
 			}
 			weight++
 		}
-		// 这里是
+		// 先左移16位( 等同weight * (2^16) )是为了让数组尽可能大，然后一个或运算，后可以让有相同士兵的行按照索引值排序
 		windex[i] = weight<<16 | i
 	}
 	sort.Ints(windex)
 	for i := 0; i < k; i++ {
+		// 这里一个&运算符反解析出i的值
 		windex[i] &= 0xffff
 	}
 	return windex[:k]
