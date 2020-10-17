@@ -1,4 +1,4 @@
-// problem: https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
+// problem: https://leetcode.com/proble1ms/the-k-weakest-rows-in-a-matrix/
 package kWeakestRows
 
 import "sort"
